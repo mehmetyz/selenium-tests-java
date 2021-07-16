@@ -3,8 +3,12 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.opentest4j.AssertionFailedError;
-import java.util.List;
 
+import java.util.Enumeration;
+import java.util.List;
+import java.util.logging.LogManager;
+
+import org.slf4j.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -13,11 +17,6 @@ public class SeleniumTests {
     private String url = "https://laughing-mclean-4e5975.netlify.app/";
     private JavascriptExecutor js;
     private WebDriver driver = null;
-
-    @BeforeAll
-    void init(){
-        //System.setProperty("webdriver.chrome.driver","chromedriver.exe");
-    }
 
     @BeforeEach
     void refreshWebSite(){
@@ -46,7 +45,6 @@ public class SeleniumTests {
     }
 
     private List<WebElement> todoList (){
-        TestUtil.test("Test to Remove TODO!");
 
         WebElement textField = null, addingButton = null;
         List<WebElement> todoList = null;
@@ -202,6 +200,7 @@ public class SeleniumTests {
         assertFalse(localStorageData.isEmpty());
 
         TestUtil.pass();
+
     }
 
 

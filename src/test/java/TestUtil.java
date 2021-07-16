@@ -1,25 +1,27 @@
 import org.junit.jupiter.api.Assertions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class TestUtil {
 
-
+    private static final Logger logger = LoggerFactory.getLogger("Selenium Testing");
     public static void test(String name){
-        System.out.println("TEST: " + name);
+        logger.info ("TEST : "+name);
     }
     public static void error(String log){
-        System.out.println("Error: " + log);
+       logger.error (log);
     }
 
     public static void info(String log){
-        System.out.println("Info: " + log);
+        logger.info ( log);
     }
 
     public static void pass(){
-        System.out.println("TEST PASSED");
+        logger.trace ("TEST PASSED");
     }
 
     public static void fail(){
-        System.out.println("TEST FAILED");
+        logger.error ("TEST FAILED");
         Assertions.fail();
     }
 }
