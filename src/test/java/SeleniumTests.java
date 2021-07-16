@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.opentest4j.AssertionFailedError;
 import java.util.List;
 
@@ -24,7 +25,13 @@ public class SeleniumTests {
         try {
 
             TestUtil.info("Connect to driver");
-            driver = new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--no-sandbox");
+            options.addArguments("--window-size=1420,108");
+            options.addArguments("--headless");
+            options.addArguments("--disable-gpu");
+
+            driver = new ChromeDriver(options);
 
             js = (JavascriptExecutor) driver;
         }
