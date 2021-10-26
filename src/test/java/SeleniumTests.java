@@ -22,8 +22,8 @@ public class SeleniumTests {
             TestUtil.info("Connect to driver");
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--no-sandbox");
-            options.addArguments("--window-size=1420,108");
-            options.addArguments("--headless");
+            options.addArguments("--window-size=800,800");
+            //options.addArguments("--headless");
             options.addArguments("--disable-gpu");
 
             driver = new ChromeDriver(options);
